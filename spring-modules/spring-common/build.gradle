@@ -1,0 +1,9 @@
+plugins {
+    id 'idolpark.java-library-conventions'
+}
+
+version 'unspecified'
+
+dependencies {
+    implementation("org.springframework.boot:spring-boot-starter-test")
+}

@@ -6,3 +6,13 @@
 //    dependsOn(gradle.includedBuild('user-feature').task(':data:check'))
 //    dependsOn(gradle.includedBuild('user-feature').task(':table:check'))
 //}
+
+plugins {
+    id 'org.springframework.boot' version "${orgSpringframeworkBootVersion}"
+    id 'io.spring.dependency-management' version "${ioSpringDependencyManagementVersion}"
+}
+
+subprojects {
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+}

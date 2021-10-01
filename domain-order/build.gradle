@@ -1,0 +1,11 @@
+plugins {
+    id "idolpark.java-library-conventions"
+}
+
+dependencies {
+
+    implementation(project(':spring-modules:spring-common'))
+
+    // jpa 의존성, querydsl
+
+}

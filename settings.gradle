@@ -9,4 +9,6 @@ dependencyResolutionManagement {
 }
 
 include("application")
+include 'domain-order'
+include 'spring-modules:spring-common'
 

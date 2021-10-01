@@ -1,19 +1,13 @@
 plugins {
-    id 'spring-application'
-    id 'org.springframework.boot' version "${orgSpringframeworkBoot}"
-    id 'io.spring.dependency-management' version "${ioSpringDependencyManagement}"
+    id 'idolpark.java-library-conventions'
 }
 
 group = "org.idolpark"
 version = "1.0-SNAPSHOT"
 
 dependencies {
-
+    implementation project(":spring-modules:spring-common")
+    implementation("org.springframework.boot:spring-boot-starter-web")
 }
 
-tasks {
-    test {
-        useJUnitPlatform()
-    }
-}
 
