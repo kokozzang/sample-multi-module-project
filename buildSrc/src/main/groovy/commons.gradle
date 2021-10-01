@@ -1,0 +1,18 @@
+
+plugins {
+    id("java-library")
+}
+
+group = "com.example"
+version = "1.0"
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+dependencies {
+    compileOnly("org.projectlombok:lombok")
+    annotationProcessor("org.projectlombok:lombok")
+}
