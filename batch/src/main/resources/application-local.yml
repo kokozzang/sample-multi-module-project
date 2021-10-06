@@ -1,0 +1,13 @@
+spring:
+  batch:
+    jdbc:
+      initialize-schema: always
+
+  datasource:
+    url: jdbc:mysql://localhost:9080/orders
+    driverClassName: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123123
+
+  profiles:
+    include: domain-order-local

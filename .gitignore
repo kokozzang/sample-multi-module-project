@@ -1,6 +1,7 @@
 HELP.md
 .gradle
 /build/
+*/build/
 !gradle/wrapper/gradle-wrapper.jar
 
 ### STS ###
@@ -20,6 +21,9 @@ HELP.md
 *.bak
 *.backup
 /out/
+
+### IntelliJ Plugin ###
+*.jpb
 
 ### NetBeans ###
 /nbproject/private/

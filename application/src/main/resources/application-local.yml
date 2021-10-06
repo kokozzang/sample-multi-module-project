@@ -1,0 +1,12 @@
+spring:
+  config:
+    location: classpath:domain-order-local.yml
+
+
+#debug: true
+
+logging:
+  level:
+    root: info
+    org.hibernate.type: trace
+    org.springframework: debug

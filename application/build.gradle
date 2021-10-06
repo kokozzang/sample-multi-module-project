@@ -1,13 +1,15 @@
 plugins {
     id 'idolpark.java-library-conventions'
+    id 'idolpark.spring-web'
 }
 
 group = "org.idolpark"
 version = "1.0-SNAPSHOT"
 
 dependencies {
-    implementation project(":spring-modules:spring-common")
-    implementation("org.springframework.boot:spring-boot-starter-web")
+
+    api project(':domain-order')
+
 }
 
 

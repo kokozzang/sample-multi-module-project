@@ -1,0 +1,17 @@
+plugins {
+    id 'idolpark.java-library-conventions'
+    id 'idolpark.spring-batch'
+    id 'idolpark.spring-data-jpa'
+}
+
+version 'unspecified'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    implementation project(':domain-order')
+
+}
