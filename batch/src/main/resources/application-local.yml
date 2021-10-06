@@ -9,5 +9,3 @@ spring:
     username: root
     password: 123123
 
-  profiles:
-    include: domain-order-local

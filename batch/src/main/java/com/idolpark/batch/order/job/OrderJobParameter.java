@@ -6,7 +6,6 @@ import org.springframework.batch.core.configuration.annotation.JobScope;
 import org.springframework.stereotype.Component;
 
 @Component
-@JobScope
 @Getter
 @ToString
 public class OrderJobParameter {
@@ -15,9 +14,12 @@ public class OrderJobParameter {
 
     private Integer quantity;
 
+    private Integer stepThreadCount;
+
 
     public void init(OrderJobParameterCommandLine jobParameter) {
         chunkSize = jobParameter.getChunkSize();
+        stepThreadCount = jobParameter.getStepThreadCount();
         quantity = jobParameter.getQuantity();
     }
 

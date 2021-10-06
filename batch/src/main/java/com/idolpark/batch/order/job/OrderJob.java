@@ -20,6 +20,8 @@ import org.springframework.batch.item.database.builder.JpaItemWriterBuilder;
 import org.springframework.batch.repeat.RepeatStatus;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.task.TaskExecutor;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 import javax.persistence.EntityManagerFactory;
 import java.time.Duration;
@@ -56,6 +58,19 @@ public class OrderJob {
             .build();
     }
 
+    @Bean(JOB_NAME + "_taskPool")
+    @JobScope
+    public TaskExecutor executor() {
+        ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
+        executor.setCorePoolSize(jobParameter.getStepThreadCount());
+        executor.setMaxPoolSize(jobParameter.getStepThreadCount());
+        executor.setThreadNamePrefix("multi-thread-");
+        executor.setWaitForTasksToCompleteOnShutdown(Boolean.TRUE);
+        executor.initialize();
+
+        return executor;
+    }
+
     @Bean(JOB_NAME + "_emptyStep")
     @JobScope
     public Step emptyStep() {
@@ -75,6 +90,8 @@ public class OrderJob {
             .reader(orderReader())
             .processor(orderItemProcessor())
             .writer(orderWriter())
+            .taskExecutor(executor())
+            .throttleLimit(jobParameter.getStepThreadCount())
             .build();
 
     }
